@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>Crystal Clicker</title>
+		<script src="script3.js"></script>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+		body{
+			font-family: 'Press Start 2P', cursive;
+			background-color: #ffffff;
+			background-image: url('background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+		}
+
+        .title{
+            margin-top: 10px;
+			margin-bottom: 20px;
+			margin-right: 150px;
+            font-size: 50px;
+        }
+
+		#time{
+			margin-right: 150px;
+		}
+
+		#borderhealth{
+			border-style: solid;
+			width: 205px;
+			background-color: #ffffff;
+		}
+
+		#health{
+			width:200px;
+			background-color:#FF0000;
+			height: 24px;
+		}
+
+		#healthtext{
+			position: absolute;
+			margin-left: 50px;	
+			user-select: none;
+		}
+
+		#mining{
+            padding: 0;
+        }
+
+		#button{
+			margin-top: 150px;
+		}
+
+
+		#autoclickers{
+			height: 803px;
+		}
+
+		#upgrades{
+			height: 803px;
+		}
+
+		#rockbutton{
+			background-color: transparent;
+			border-style: none;
+			user-select: none;
+			transition: 0.2s;
+		}
+
+		#rockbutton:hover{
+			transform: scale(1.1);
+		}
+
+		#rockbutton:active{
+			transform: scale(0.95);
+		}
+
+		#number{
+			color:rgb(255, 255, 255);
+			user-select: none;
+			font-size: 30px;
+		}
+
+		#firstcolumn{
+			background-color: rgba(110, 199, 229, 0.9);
+			border-color: black;
+            border-style: ridge;
+            border-width: 10px;
+		}
+
+		#mining{
+            padding: 0;
+			background-color: rgba(110, 199, 229, 0.9);
+			border-color: black;
+            border-style: ridge;
+            border-width: 10px;
+        }
+
+		#thirdcolumn{
+			background-color: rgba(110, 199, 229, 0.9);
+			border-color: black;
+            border-style: ridge;
+            border-width: 10px;
+		}
+
+		.white{
+			color: white;
+		}
+
+		.test{
+			color: #5ed85e;
+		}
+
+		#back{
+			width: 80px;
+			height: 80px;
+			font-size: 50px;
+			transition: 0.2s;
+		}
+
+		#back:hover{
+			transform: scale(1.1);
+		}
+
+		.modal-content{
+			margin-top: 400px;
+			background-color: rgba(119, 221, 255, 1);
+			border-color: black;
+            border-style: ridge;
+            border-width: 10px;
+		}
+
+		.modal-footer{
+			border-top: 10px ridge black;
+		}
+
+		.modal-header{
+			border-bottom: 10px ridge black;
+		}
+
+    </style>
+  </head>
+
+  <body>
+
+		<div id="main" class="container-fluid">
+		
+			<div class="row">
+				<div class="col-1">
+					<a id="back" class="btn btn-secondary m-4" href="index.html">&lt;</a>	
+								
+				</div>
+				<div class="col-11">
+					<h2 class="title pt-1 text-center white">Crystal Clicker</h2>
+					<h3 id="time" class="text-center white">Time: 0 m, 0 s</h3>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div id="firstcolumn" class="col text-center p-0 m-3">
+
+					<div class="col m-2">
+						<h1>Upgrades</h1>
+					</div>
+
+					<div id="upgrades" class="d-flex flex-column overflow-auto">
+
+							<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="upgrade1()" id="me1">
+								<div class="row">
+
+									<div class="col-3">
+										<img id="imgme1" src="minerefficiency1.png" alt="bronze" width="100">
+									</div>
+
+									<div class="col-9">
+										<h4>Mining Efficiency 1</h4>
+										<p id="cost1">Upgrade cost: 50 </p>
+										<p>Get an extra 2 dollars per rock mined</p>
+									</div>
+								</div>
+							</div>
+
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="upgrade2()" id="me2">
+							<div class="row">
+
+								<div class="col-3">
+									<img id="imgme2" src="minerefficiency2.png" alt="iron" width="100">
+								</div>
+
+								<div class="col-9">
+									<h4>Mining Efficiency 2</h4>
+									<p id="cost2">Upgrade cost: 100 </p>
+									<p>Get an extra 3 dollars per rock mined</p>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="upgrade3()" id="me3">
+							<div class="row">
+
+								<div class="col-3">
+									<img id="imgme3" src="minerefficiency3.png" alt="iron" width="100">
+								</div>
+
+								<div class="col-9">
+									<h4>Mining Efficiency 3</h4>
+									<p id="cost3">Upgrade cost: 200 </p>
+									<p>Get an extra 5 dollars per rock mined</p>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="upgrade4()" id="me4">
+							<div class="row">
+
+								<div class="col-3">
+									<img id="imgme4" src="minerstouch.png" alt="hand" width="100">
+								</div>
+
+								<div class="col-9">
+									<h4>Miners Touch</h4>
+									<p id="cost4">Upgrade cost: 250 </p>
+									<p>Doubles the amount of cash you get per ore</p>
+								</div>
+
+							</div>
+						</div>
+						
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="win()" id="win1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<div class="row">
+
+								<div class="col-3">
+									<img id="imgwin" src="trophy.png" alt="iron" width="100">
+								</div>
+
+								<div class="col-9">
+									<h4>Win the game.</h4>
+									<p id="cost5">Cost: 1000</p>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div id="mining" class="col text-center m-3">
+
+					<div id="button">
+
+						<h4 id="amountofmoney" class="my-5"><img src="moneybag.png" alt="money" width="50"> Money: 0</h4>
+						
+						<h5 id="extra">Extra money per ore: 0</h5>
+						<h5 id="cashpersecond">Cash per Second: 0</h5>
+				
+						<button id="rockbutton" class="m-4 px-4" onclick="add(event)">
+							<img src="crystal.png" alt="rock" width="250" draggable="false">
+						</button>
+						<div id="number"></div>
+
+						<div id="borderhealth" class="mx-auto mt-4">
+							<div id="healthtext">Health</div>
+							<div id="health" class="mx-auto"></div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div id="thirdcolumn" class="col text-center p-0 m-3">
+
+						<div class="col m-2">
+							<h1>Automators</h1>
+						</div>
+
+					<div id="autoclickers" class="d-flex flex-column overflow-auto">
+
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="miner()" id="miner">
+							<div class="row">
+
+								<div class="col-2">
+									<img id="imgm1" src="miner.png" alt="miner" width="90">
+								</div>
+
+								<div class="col-9 my-auto">
+									<h4 id="amountofminers">Miner</h4>
+									<h6 id="costminer">Cost: 10</h6>
+									<p>Mines rocks every seconds</p>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="driller()" id="driller">
+							<div class="row">
+
+								<div class="col-2 pt-4">
+									<img id="imgd1" src="drill.png" alt="driller" width="120">
+								</div>
+
+								<div class="col-9 my-auto">
+									<h4 id="amountofdrillers">Driller</h4>
+									<h6 id="costdriller">Cost: 100</h6>
+									<p>Drills 3 rocks every second</p>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="Adriller()" id="Adriller">
+							<div class="row">
+
+								<div class="col-2 pt-4">
+									<img id="imgAd1" src="Adrill.png" alt="Adriller" width="110">
+								</div>
+
+								<div class="col-9 my-auto">
+									<h4 id="amountofAdrillers">Amethyst Driller</h4>
+									<h6 id="costAdriller">Cost: 200</h6>
+									<p>Drills 1 Amethyst rock ($15) every 3 seconds</p>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="Ldriller()" id="Ldriller">
+							<div class="row">
+
+								<div class="col-2 pt-5">
+									<img id="imgLd1" src="Ldrill.png" alt="Ldriller" width="130">
+								</div>
+
+								<div class="col-9 my-auto">
+									<h4 id="amountofLdrillers">Lunaris Quartz Driller</h4>
+									<h6 id="costLdriller">Cost: 400</h6>
+									<p>Drills 1 Lunaris Quartz rock ($50) every 5 seconds</p>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="btn btn-secondary border-dark rounded-0 container pt-4" onclick="Sdriller()" id="Sdriller">
+							<div class="row">
+
+								<div class="col-2 pt-4">
+									<img id="imgSd1" src="Sdrill.png" alt="Sdriller" width="130">
+								</div>
+
+								<div class="col-9 my-auto">
+									<h4 id="amountofSdrillers">Solaris Citrine Driller</h4>
+									<h6 id="costSdriller">Cost: 600</h6>
+									<p>Drills 1 Solaris Citrine rock ($150) every 10 seconds</p>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+			<div id="modal-container" class="modal-dialog">
+
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Congratulations!</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+
+					<div class="modal-body">
+					You have won the game! Try beating your current time!
+					</div>
+
+					<div class="modal-body ps-3 p-0">
+						Your current record is: 
+					</div>
+
+					<div id="record" class="modal-body ps-3 pb-3 p-0">
+						0 m, 0 s
+					</div>
+
+					<div class="modal-footer">
+					<a class="btn btn-secondary" href="index.html">Go back home</a>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
